@@ -175,6 +175,8 @@ def get_data():
 <li id="o"><a href="/other" title="其他网站推荐" target="_blank"><font size="8" color="green">其他网站推荐</font></a></li>
 <li id="o"><a href="http://1.liuwen.applinzi.com/updata_data" title="上传数据" target="_blank"><font size="8" color="green">上传笔记数据</font></a></li>
 <li id="ho"><a href="http://1.liuwen.applinzi.com/login"><font size="8" color="blue">我的云笔记</font></a></li>
+<center><p>.</p></center>
+<li id="ho"><a href="http://1.liuwen.applinzi.com/update_article"><font size="8" color="blue">更新文章</font></a></li>
 </ul>
 </div>'''
     page=page+'''<center><p><font size="2" >.</font></p></center>
@@ -192,9 +194,9 @@ def get_data():
     n=1
     for i in data:
         text=kv.get(i)
-        if '###' in text:
-            title=text.split('###')[0]
-            content=text.split('###')[1]
+        if '######' in text:
+            title=text.split('######')[0]
+            content=text.split('######')[1]
             page=page+'<h1><font size="12" color="red"><center>&nbsp;&diams;&nbsp;&nbsp;'+str(n)+'、'+title+'</center></font></h1>'+'<center><font size="6"><p>上传日期：&nbsp;'+str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(int(i)))).replace(' ','&nbsp;')+'</p></font></center>'
             texe=page+'<p style="width:965px; word-wrap:break-word;">'
             page=page+'<font size="12">&nbsp;&nbsp;&nbsp;&nbsp;'+content
@@ -228,6 +230,8 @@ def get_data1():
 <li id="he"><a href="http://1.liuwen.applinzi.com/linear"><font size="8" color="blue">线性回归方程求解</font></a></li>
 <li id="o"><a href="/other" title="其他网站推荐" target="_blank"><font size="8" color="green">其他网站推荐</font></a></li>
 <li id="o"><a href="http://1.liuwen.applinzi.com/updata_data" title="上传数据" target="_blank"><font size="8" color="green">上传笔记数据</font></a></li>
+<center><p>.</p></center>
+<li id="ho"><a href="http://1.liuwen.applinzi.com/update_article"><font size="8" color="blue">更新文章</font></a></li>
 <li id="ho"><a href="http://1.liuwen.applinzi.com/login"><font size="8" color="blue">我的云笔记</font></a></li>
 </ul>
 </div>
@@ -247,9 +251,9 @@ def get_data1():
     n=1
     for i in data:
         text=kv.get(i)
-        if '***' in text:
-            title=text.split('***')[0]
-            content=text.split('***')[1]
+        if '******' in text:
+            title=text.split('******')[0]
+            content=text.split('******')[1]
             page=page+'<h1><font size="12" color="red"><center>&nbsp;&diams;&nbsp;&nbsp;'+str(n)+'、'+title+'</center></font></h1>'+'<center><font size="6"><p>上传日期：&nbsp;'+str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(int(i)))).replace(' ','&nbsp;')+'</p></font></center>'
             texe=page+'<p style="width:965px; word-wrap:break-word;">'
             page=page+'<font size="12">&nbsp;&nbsp;&nbsp;&nbsp;'+content
@@ -281,6 +285,8 @@ def updata():
 <li id="he"><a href="http://1.liuwen.applinzi.com/linear"><font size="8" color="blue">线性回归方程求解</font></a></li>
 <li id="o"><a href="/other" title="其他网站推荐" target="_blank"><font size="8" color="green">其他网站推荐</font></a></li>
 <li id="o"><a href="http://1.liuwen.applinzi.com/login" title="回到我的笔记" target="_blank"><font size="8" color="green">回到我的笔记</font></a></li>
+<center><p>.</p></center>
+<li id="ho"><a href="http://1.liuwen.applinzi.com/update_article"><font size="8" color="blue">更新文章</font></a></li>
 </ul>
 </div>
     <form method = "POST" id="form">
@@ -290,7 +296,7 @@ def updata():
     <center><h1><font size="12" color="green">请输入保存数据权限码</font></h1></center>
    <center> <input name="psd" style='font-size:40px;background: #F0F8FF;' size=15/></center>
    <center><h1><font size="20" color="green">请输入标题</font></h1></center>
-   <center> <input name="title" style='font-size:40px;background: #F0F8FF;' size=30/></center>
+   <center> <input name="title" style='font-size:40px;background: #F0F8FF;' value="小记" size=30/></center>
     <center><p><font size="2" color="blue">.</font></p></center>
     <center><p><font size="2" color="blue">.</font></p></center>
     <center><p><font size="2" color="blue">.</font></p></center>
@@ -437,7 +443,7 @@ def login():
     url=[('http://www.qqenglish.com/bn/bn/','国际新闻类文章'),('http://www.qqenglish.com/bn/business/','商业经济类文章'),\
              ('http://www.qqenglish.com/bn/technology/','科技类文章'),('http://www.qqenglish.com/bn/education/','教育类文章'),\
              ('http://www.qqenglish.com/bn/culture/','文化类文章'),('http://www.qqenglish.com/bn/science/','科学类文章'),\
-             ('http://www.qqenglish.com/bn/opinion/','观点类文章'),('http://www.qqenglish.com/bn/health/','健康类文章'),('http://www.qqenglish.com/bn/tour/','旅游类文章')]
+             ('http://www.qqenglish.com/bn/opinion/','观点类文章'),('http://www.qqenglish.com/bn/health/','健康类文章'),('http://www.qqenglish.com/bn/travel/','旅游类文章')]
     if num!='':
         url=url[int(num)-1]
         data=kv.getkeys_by_prefix('', limit=1000000, marker=None)
@@ -480,6 +486,8 @@ def login():
             <li id="x"><a href="/culture" title="文化类文章"><font size="8" color="blue">文化类文章</font></a></li>
             <li id="ws"><a href="/science" title="科学类文章"><font size="8" color="blue">科学类文章</font></a></li>
             <li id="w"><a href="/opinion" title="观点类文章"><font size="8" color="blue">观点类文章</font></a></li>
+            <li id="ws"><a href="/health" title="科学类文章"><font size="8" color="blue">健康类文章</font></a></li>
+            <li id="w"><a href="/tour" title="观点类文章"><font size="8" color="blue">旅游类文章</font></a></li>
             <li id="o"><a href="/other" title="其他网站推荐" target="_blank"><font size="8" color="green">其他网站推荐</font></a></li>
             </ul>
             </div>'''
@@ -658,12 +666,28 @@ def up_data():
     title=request.forms.get('title')
     if name!='' and psd=='bh' and title!='':
         if name!='':
-    			kv.set(str(int(time.time())),title.replace(' ','&nbsp;')+'###'+name.replace(' ','&nbsp;').replace('\r\n','<br>'))
-    			return get_data()
+            kv.set(str(int(time.time())),title.replace(' ','&nbsp;')+'######'+name.replace(' ','&nbsp;').replace('\r\n','<br>'))
+            return get_data()
     elif name!='' and psd=='hf' and title!='':
         if name!='':
-    			kv.set(str(int(time.time())),title.replace(' ','&nbsp;')+'***'+name.replace(' ','&nbsp;').replace('\r\n','<br>'))
-    			return get_data1()
+            kv.set(str(int(time.time())),title.replace(' ','&nbsp;')+'******'+name.replace(' ','&nbsp;').replace('\r\n','<br>'))
+            return get_data1()
+    elif name!='' and psd=='bhgo':
+        if name!='':
+            data=kv.getkeys_by_prefix('', limit=1000000, marker=None)
+            for i in data:
+                text=kv.get(i)
+                if '######' in text and name in text:
+                    kv.delete(i)
+                    return get_data()
+    elif name!='' and psd=='hfgo':
+        if name!='':
+            data=kv.getkeys_by_prefix('', limit=1000000, marker=None)
+            for i in data:
+                text=kv.get(i)
+                if '******' in text and name in text:
+                    kv.delete(i)
+                    return get_data1()
     else:
         return  '''<center><p><font size="2" color="blue">.</font></p></center>
     <center><p><font size="2" color="blue">.</font></p></center>
