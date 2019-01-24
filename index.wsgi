@@ -716,11 +716,11 @@ def data_judgment():
     name = request.forms.get('note')
     psd=request.forms.get('psd')
     title=request.forms.get('title')
-    if name!='' and psd=='bh' and title!='':
+    if name!='' and psd=='****' and title!='':
         if name!='':
             kv.set(str(int(time.time())),title.replace(' ','&nbsp;')+'######'+name.replace(' ','&nbsp;').replace('\r\n','<br>'))
             return cloud_note()
-    elif name!='' and psd=='hf' and title!='':
+    elif name!='' and psd=='*****' and title!='':
         if name!='':
             kv.set(str(int(time.time())),title.replace(' ','&nbsp;')+'******'+name.replace(' ','&nbsp;').replace('\r\n','<br>'))
             return diary()
@@ -733,7 +733,7 @@ def data_judgment():
         if name!='':
             kv.set(str(int(time.time())),title.replace(' ','&nbsp;')+'####note####'+name.replace(' ','&nbsp;').replace('\r\n','<br>'))
             return get_note()
-    elif name!='' and psd=='bhgo':
+    elif name!='' and psd=='*****':
         if name!='':
             data=kv.getkeys_by_prefix('', limit=1000000, marker=None)
             for i in data:
@@ -741,7 +741,7 @@ def data_judgment():
                 if '######' in text and name in text:
                     kv.delete(i)
         return cloud_note()
-    elif name!='' and psd=='hfgo':
+    elif name!='' and psd=='*****':
         if name!='':
             data=kv.getkeys_by_prefix('', limit=1000000, marker=None)
             for i in data:
@@ -775,9 +775,9 @@ def data_judgment():
 '''私人云笔记登陆验证函数'''
 def login_judgment():
     psd=request.forms.get('psd')
-    if psd=='bhzf083415':
+    if psd=='123446':
         return cloud_note()
-    elif psd=='hfzf083415':
+    elif psd=='4546125':
         return diary()
     	
     else:
